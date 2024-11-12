@@ -2,7 +2,7 @@ package pro.sky.calculator;
 
 public class CalculatorService {
     public String calculator(){
-        return "Добро пожаловать в калькулятор";
+        return "Добро пожаловать в калькулятор!";
     }
     public String plus(int num1, int num2) {
         int result = num1 + num2;

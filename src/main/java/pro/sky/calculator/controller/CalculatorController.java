@@ -43,7 +43,7 @@ public class CalculatorController {
                     return " Делить на ноль нельзя";
                 }
             }else {
-              return   "Не хватает числа для выполнения данного действия ";
+              return   " Не хватает числа для выполнения данного действия ";
             }
         return calculatorService.divide(num1, num2);
     }

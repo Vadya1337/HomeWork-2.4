@@ -22,7 +22,7 @@ public class CalculatorController {
     }
 
         @GetMapping(path = "/plus")
-        public String plus ( @RequestParam int num1, @RequestParam int num2){
+        public String plus ( @RequestParam(required=false) Integer num1, @RequestParam(required=false) Integer num2){
         return calculatorService.plus(num1, num2);
     }
 
@@ -37,14 +37,7 @@ public class CalculatorController {
     }
 
         @GetMapping(path = "/divide")
-        public String divide ( @RequestParam (required = false) Integer num1, @RequestParam (required = false) Integer num2){
-        if (num1 != null && num2 != null){
-                if (num2 == 0) {
-                    return " Делить на ноль нельзя";
-                }
-            }else {
-              return   " Не хватает числа для выполнения данного действия ";
-            }
+        public String divide ( @RequestParam int num1, @RequestParam int num2){
         return calculatorService.divide(num1, num2);
     }
     }

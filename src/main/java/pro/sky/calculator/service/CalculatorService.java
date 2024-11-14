@@ -1,6 +1,7 @@
 package pro.sky.calculator.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
@@ -9,9 +10,14 @@ public class CalculatorService {
         return "Добро пожаловать в калькулятор!";
     }
 
-    public String plus(int num1, int num2) {
-        int result = num1 + num2;
-        return "Результат = " + num1 + "+" + num2 + "=" + result;
+    @GetMapping(path = "/plus")
+    public String plus(@RequestParam Integer num1, @RequestParam Integer num2) {
+        if (num1 == null && num2 == null) {
+            return " Не хватает числа для выполнения данного действия!";
+        } else {
+            int result = num1 + num2;
+            return num1 + " + " + num2 + " = " + result;
+        }
     }
 
     public String minus(int num1, int num2) {
@@ -24,12 +30,17 @@ public class CalculatorService {
         return "Результат = " + num1 + "*" + num2 + "=" + result;
     }
 
-    public String divide(int num1, int num2) {
+    public String divide(@RequestParam(required = false) Integer num1, @RequestParam(required = false) Integer num2) {
 
-        int result = num1 / num2;
-        return "Результат = " + num1 + "/" + num2 + "=" + result;
+        if (num2 == 0) {
+            return " Делить на ноль нельзя";
+        } else {
+            int result = num1 / num2;
+            return "Результат = " + num1 + "/" + num2 + "=" + result;
+        }
+
     }
+}
 
 
-    }
 

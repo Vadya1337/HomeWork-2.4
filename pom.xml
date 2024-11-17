@@ -14,10 +14,10 @@
 	<name>calculator</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
-	<licenses>
-		<license/>
+	 <licenses>
+		 <license/>
 	</licenses>
-	<developers>
+	 <developers>
 		<developer/>
 	</developers>
 	<scm>
